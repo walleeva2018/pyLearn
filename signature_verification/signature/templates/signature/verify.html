@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Verification</title>
+</head>
+<body>
+    <h1>Signature Verification</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload and Verify</button>
+    </form>
+    {% if result %}
+        <h2>Result</h2>
+        <p>Name: {{ result.name }}</p>
+        <p>Similarity Score: {{ result.score }}</p>
+        <p>Match: {{ result.match }}</p>
+    {% endif %}
+</body>
+</html>
